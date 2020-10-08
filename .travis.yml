@@ -1,0 +1,19 @@
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t rapporteket/soreg-base-r .
+  - docker run -d -ti --name soreg-base-r rapporteket/soreg-base-r
+
+script:
+  - docker ps | grep -q soreg-base-r
+
+deploy:
+  - provider: script
+    script: bash docker_push.sh
+    skip_cleanup: true
+    on:
+      # 'tags: true' maybe added
+      branch: master

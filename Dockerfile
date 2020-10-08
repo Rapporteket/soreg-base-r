@@ -22,5 +22,3 @@ RUN R -e "install.packages(c('remotes'), repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages(c('covr', 'dplyr', 'kableExtra', 'knitr', 'lintr', 'magrittr', 'revealjs', 'shiny', 'shinyalert', 'shinycssloaders', 'testthat'))"
 
 RUN R -e "remotes::install_github(c('Rapporteket/rapbase@*release', 'Rapporteket/raplog@*release'))"
-
-CMD ["R"]
